@@ -1,6 +1,10 @@
 package org.example;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class TestSuit extends TestExtra {
     Homepage homepage=new Homepage();
@@ -14,6 +18,10 @@ public class TestSuit extends TestExtra {
     ElectronicsPage electronicsPage=new ElectronicsPage();
     CellphonePage cellphonePage=new CellphonePage();
     ShoppingCartPage shoppingCartPage=new ShoppingCartPage();
+    FacebookPopUpWindow facebookPopUpWindow= new FacebookPopUpWindow();
+    NewStoreOpenPage newStoreOpenPage = new NewStoreOpenPage();
+    IFrameHandle iFrameHandle= new IFrameHandle();
+
 
     @Test (priority = 0)
     public void RegistrationWithValidCredential()
@@ -89,4 +97,67 @@ public class TestSuit extends TestExtra {
         //verify products in shopping cart
         shoppingCartPage.checkProductInShoppingCart();
     }
+
+    @Test
+    public void verifyAlertOnSearchButton()
+    {
+        //check user is on homepage
+        homepage.CheckForHomepage();
+        //click on search button
+        homepage.clickOnSearchButton();
+        //get text from popup
+        homepage.verifyTextOnAlert();
+        //click on ok button in alert
+        clickOnOkOfAlert();
+    }
+    @Test
+    public void toVerifyFacebookLink()
+    {
+        //check user is on homepage
+        homepage.CheckForHomepage();
+        //click on facebook link
+        homepage.clickOnFacebookLink();
+        //verify url
+        facebookPopUpWindow.handleFacebookPopupWindow();
+    }
+    @Test
+    public void verifyCommentInDetails()
+    {
+        //click on detais 1
+        homepage.clickOnDetails1();
+        //check for page
+        newStoreOpenPage.checkForNewStorePage();
+        //fill page
+        newStoreOpenPage.fillPageDetails();
+        //click on send comment button
+        newStoreOpenPage.clickOnSendComment();
+        //verify comment send successfully
+        newStoreOpenPage.CheckCommentSentSuccessfully();
+        //verify comment is added
+        newStoreOpenPage.verifyComment();
+        //verify comment present at bottom
+        newStoreOpenPage.verifyMessageAtLast();
+    }
+    @Test
+    public void userAbleToChangeCurrency()
+    {
+        homepage.CheckForHomepage();
+        //click on currency option & check currency
+        homepage.changeCurrencyOption();
+    }
+    @Test
+    public void handleIFrame()
+    {
+        //verify page
+        iFrameHandle.verifyIframeWindow();
+        //enter and verify first iframe
+        iFrameHandle.enterIntoIFrame();
+        //fill the detais
+        iFrameHandle.fillDetailsIFrame();
+        //enter and check inner iframe
+        iFrameHandle.enterIntoInnerIFrame();
+        //enter and check last iframe
+        iFrameHandle.enterIntoLastFrame();
+    }
+
 }
