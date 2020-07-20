@@ -8,7 +8,7 @@ public class BrowserManager extends Util{
     public void setBrowser()
     {
         //seting up chromedriver path
-        System.setProperty("webdriver.chrome.driver","C:\\soft\\chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src\\test\\web driver\\chromedriver.exe");
         //creating chrome driver object to open chrome browser
         driver=new ChromeDriver();
         //maximise screen
