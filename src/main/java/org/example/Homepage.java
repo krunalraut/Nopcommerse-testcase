@@ -69,9 +69,9 @@ public class Homepage extends Util {
     {
         selectFromListByText(_CurrencyOption,"US Dollar",30);
         List <WebElement> priceList=driver.findElements(By.xpath("//div [@class=\"item-grid\"]//span[@class=\"price actual-price\"]"));
-        System.out.println(priceList.size());
         for (WebElement price:priceList)
         {
+            System.out.println(price.getText());
             Assert.assertEquals(price.getText().contains("$"),true);
         }
     }
