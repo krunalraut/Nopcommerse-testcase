@@ -1,6 +1,6 @@
 package org.example;
 
-import org.apache.commons.io.FileUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -83,13 +83,13 @@ public class Util extends BaseProject {
     }
 
     //method for taking screenshot
-    public void takeScreenShot(String screenShotName) {
-        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(srcFile, new File("src\\test\\Sreenshot" +screenShotName+" .jpeg"));
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }}
+//    public void takeScreenShot(String screenShotName) {
+//        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.copyFile(srcFile, new File("src\\test\\Sreenshot" +screenShotName+" .jpeg"));
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }}
 
 }
